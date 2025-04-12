@@ -2,18 +2,18 @@
 
 專題學習組#3 異國香料電商
 
-前台頁面
-HomePage
-AboutPage
-ProductListPage
- ProductDetailPage
-CartPage
-LoginPage(AdminLogin)
+前台頁面  
+HomePage  
+AboutPage  
+ProductListPage  
+ ProductDetailPage  
+CartPage  
+LoginPage(AdminLogin)  
 
-後台頁面
-AdminHomePage
-AdminOrdersPage
-AdminProductsPage
+後台頁面  
+AdminHomePage  
+AdminOrdersPage  
+AdminProductsPage  
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
