@@ -12,7 +12,7 @@ export default function AboutPage() {
           </div>
           <h6 className="text-center text-primary-700 fs-md-5 mb-4 mb-md-5">創造味蕾的每一份感動，從香料開始</h6>
           <div className="ratio ratio-4x3 mb-4 mb-md-5">
-            <img className="img-circle-fade" src="../assets/images/about01.png" alt="about01" />
+            <img className="img-circle-fade" src="https://github.com/Emilyee2001/react-week8-0/blob/main/src/assets/images/about01.png?raw=true" alt="about01" />
           </div>
           <p className="fs-md-lg mb-4">ExotiSpice異國香堅信，料理不僅僅是填飽肚子的工具，更是一種情感的表達與文化的連結。我們以「香料」為核心理念，精心挑選來自世界各地的優質香料，滿足現代人對健康、美味與異國風味的追求。我們深知各地的飲食文化與多樣化的烹飪方式，因此特別注重香料的品質與來源，讓每一個香料都能完美融入你的料理中。</p>
           <p className="fs-md-lg">在ExotiSpice異國香，我們不僅關注香料的風味與質量，還堅持永續發展的理念。我們相信，好的香料應該同時考慮到對環境的影響，讓每一個家庭在享受美食的同時，也能為地球盡一份心力。
@@ -26,7 +26,7 @@ export default function AboutPage() {
       </div>
       <div className="row mb-4 mb-md-5">
         <div className="col-md-6">
-          <img className="img-circle-fade" src="../assets/images/about02.png" alt="about02" />
+          <img className="img-circle-fade" src="https://github.com/Emilyee2001/react-week8-0/blob/main/src/assets/images/about02.png?raw=true" alt="about02" />
         </div>
         <div className="col-md-6 my-auto">
           <h4 className="text-primary-700 mb-3">守護動物與推廣蔬食教育</h4>
@@ -35,7 +35,7 @@ export default function AboutPage() {
       </div>
       <div className="row flex-md-row-reverse">
         <div className="col-md-6">
-          <img className="img-circle-fade" src="../assets/images/about03.png" alt="about03" />
+          <img className="img-circle-fade" src="https://github.com/Emilyee2001/react-week8-0/blob/main/src/assets/images/about03.png?raw=true" alt="about03" />
         </div>
         <div className="col-md-6 my-auto">
           <h4 className="text-primary-700 mb-3">停止動物實驗</h4>
