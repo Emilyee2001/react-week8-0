@@ -1,0 +1,75 @@
+// api
+$utilities: map-merge($utilities,
+    ("font-size": map-merge(map-get($utilities, "font-size"), (responsive: true),
+      ),
+      "font-weight": map-merge(map-get($utilities, "font-weight"), (responsive: true),
+      ),
+      "border": map-merge(map-get($utilities, "border"), (responsive: true),
+      ),
+      "opacity": (property: opacity,
+        responsive: true,
+        values: (0: 0,
+          25: .25,
+          50: .5,
+          75: .75,
+          100: 1,
+        )),
+    ));
+
+.vh-70 {
+  height: 70vh;
+}
+
+.rwd-start-50 {
+  left: 50%;
+}
+
+.rwd-fs-1 {
+  font-size: 2.5rem;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.position-50-50 {
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.text-line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-line-clamp-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.object-position-top {
+  object-position: top;
+}
+
+@media (min-width: 768px) {
+  .rwd-start-md-75 {
+    left: 75%;
+  }
+
+  .display-md-2 {
+    font-size: 3.5rem;
+  }
+
+  .w-md-75 {
+    width: 75%;
+  }
+}
