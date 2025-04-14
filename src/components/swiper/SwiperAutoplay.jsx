@@ -14,7 +14,7 @@ export default function SwiperAutoplay() {
 
   useEffect(() => {
     new Swiper(FullSwiperRef.current, {
-      modules: [Navigation],
+      modules: [Autoplay, Navigation],
       loop: true,
       autoplay: {
         delay: 2500,
