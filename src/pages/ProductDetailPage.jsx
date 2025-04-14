@@ -27,6 +27,7 @@ export default function ProductDetailPage() {
     try {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/product/${product_id}`);
       setTempProduct(res.data.product);
+      setMainImage('');
     } catch (error) {
       handleResultMessage('error', '頁面異常請稍後再試', 'center');
     } finally {
