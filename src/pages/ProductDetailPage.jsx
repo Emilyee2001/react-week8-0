@@ -36,7 +36,7 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [product_id]);
 
   // 加入購物車
   const addCart = async (product_id, qty) => {
