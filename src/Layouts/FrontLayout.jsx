@@ -2,6 +2,7 @@ import { Outlet } from "react-router"
 
 import Header from "../components/common/Header"
 import Footer from "../components/common/Footer"
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function FrontLayout() {
 
@@ -34,6 +35,7 @@ export default function FrontLayout() {
 
   return (<>
     <Header navRoutes={headerRoutes} />
+    <ScrollToTop />
     <Outlet />
     <Footer navRoutes={footerRoutes} />
   </>)
