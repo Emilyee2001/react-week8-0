@@ -1,7 +1,6 @@
 const baseUrl = import.meta.env.VITE_BASE_URL
 import axios from 'axios'
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Link, Outlet, NavLink, useNavigate } from "react-router"
 
 export default function AdminLayout() {
@@ -27,7 +26,7 @@ export default function AdminLayout() {
     try {
       await axios.post(`${baseUrl}/v2/api/user/check`);
     } catch (error) {
-      console.error('請重新登入');
+      console.error('請重新登入', error);
       navigate('/login');
     }
   };
@@ -35,7 +34,7 @@ export default function AdminLayout() {
   // 在登入畫面渲染時呼叫檢查登入的API
   useEffect(() => {
     const authToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)eToken\s*\=\s*([^;]*).*$)|^.*$/,
+      /(?:(?:^|.*;\s*)eToken\s*=\s*([^;]*).*$)|^.*$/,
       "$1",
     );
     axios.defaults.headers.common['Authorization'] = authToken;
@@ -49,7 +48,7 @@ export default function AdminLayout() {
       await axios.post(`${baseUrl}/v2/logout`);
       navigate('/login');
     } catch (error) {
-      console.error('登出失敗');
+      console.error('登出失敗', error);
     } finally {
       setIsLoading(false);
     }
