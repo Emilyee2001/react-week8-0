@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 export default function Slideshow({ images }) {
 
@@ -10,10 +11,14 @@ export default function Slideshow({ images }) {
       setIndex((prevIndex) => (prevIndex + 1) % renderImages.length);
     }, 1100);
     return () => clearInterval(timer);
-  }, [images.toString()]);
+  }, [images, renderImages.length]);
 
 
   return (<>
     <img src={renderImages[index]} alt={`slideshow-image-${index + 1}`} className="object-cover" />
   </>)
 }
+
+Slideshow.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
