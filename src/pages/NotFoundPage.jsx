@@ -7,7 +7,6 @@ export default function NotFoundPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  // 這裡求助GPT
     if (timer === 0) {
       navigate("/");
       return;
