@@ -39,7 +39,7 @@ function ProductPage() {
   // 取得產品資料API
   const getProductData = async (page = 1) => {
     const authToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)eToken\s*\=\s*([^;]*).*$)|^.*$/,
+      /(?:(?:^|.*;\s*)eToken\s*=\s*([^;]*).*$)|^.*$/,
       "$1",
     );
     axios.defaults.headers.common['Authorization'] = authToken;
@@ -48,7 +48,7 @@ function ProductPage() {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/admin/products?page=${page}`)
       setProducts(res.data.products);
       setPageInfo(res.data.pagination);
-    } catch (error) {
+    } catch {
       console.error('取得資料失敗')
     } finally {
       setIsFullLoading(false);

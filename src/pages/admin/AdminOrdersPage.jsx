@@ -19,7 +19,7 @@ export default function AdminOrdersPage() {
 
   const getOrderList = async (page = 1) => {
     const authToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)eToken\s*\=\s*([^;]*).*$)|^.*$/,
+      /(?:(?:^|.*;\s*)eToken\s*=\s*([^;]*).*$)|^.*$/,
       "$1",
     );
     axios.defaults.headers.common['Authorization'] = authToken;
@@ -28,7 +28,7 @@ export default function AdminOrdersPage() {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/admin/orders?page=${page}`)
       setOrderList(res.data.orders);
       setPageInfo(res.data.pagination);
-    } catch (error) {
+    } catch {
       console.error('取得資料錯誤')
     } finally {
       setIsFullLoading(false);
