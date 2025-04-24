@@ -25,20 +25,20 @@ export default function AboutPage() {
         <h3 className="text-center fs-4 fs-md-1 mb-4 mb-md-5 line-deco">社會責任</h3>
       </div>
       <div className="row mb-4 mb-md-5">
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3 mb-md-0">
           <img className="img-circle-fade" src="https://github.com/Emilyee2001/react-week8-0/blob/main/src/assets/images/about02.png?raw=true" alt="about02" />
         </div>
         <div className="col-md-6 my-auto">
-          <h4 className="text-primary-700 mb-3">守護動物與推廣蔬食教育</h4>
+          <h4 className="text-primary-700 my-4">守護動物與推廣蔬食教育</h4>
           <p className="fs-lg">ExotiSpice 異國香深信，飲食的美好應該延伸到每一個生命。因此，我們積極支持動物權益，致力於減少動物實驗的需求。我們與多家非營利組織合作，共同推動蔬食教育，讓更多人了解植物性飲食對健康與環境的益處，同時減少對動物的傷害。我們相信，透過提高大眾的認知，可以逐漸改變社會對動物的態度，創造一個更加友善的環境。</p>
         </div>
       </div>
       <div className="row flex-md-row-reverse">
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3 mb-md-0">
           <img className="img-circle-fade" src="https://github.com/Emilyee2001/react-week8-0/blob/main/src/assets/images/about03.png?raw=true" alt="about03" />
         </div>
         <div className="col-md-6 my-auto">
-          <h4 className="text-primary-700 mb-3">停止動物實驗</h4>
+          <h4 className="text-primary-700 my-4">停止動物實驗</h4>
           <p className="fs-lg">ExotiSpice 異國香承諾在我們的產品研發過程中，絕不進行動物實驗。我們選擇對動物無害的材料，並不斷尋找更具永續性的替代方案，為動物與地球的未來盡一份心力。我們期望透過這些實際行動，帶動更多企業和個人一起加入，為推動動物權益與保護地球而努力。</p>
         </div>
       </div>
