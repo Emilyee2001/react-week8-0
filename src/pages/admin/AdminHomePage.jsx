@@ -2,7 +2,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL
 const apiPath = import.meta.env.VITE_API_PATH
 import axios from 'axios'
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as c3 from "c3";
 import "c3/c3.css";
 import FullscreenLoading from '../../components/FullscreenLoading'
@@ -18,7 +18,7 @@ export default function AdminHomePage() {
   const getProducts = async () => {
     try {
       const authToken = document.cookie.replace(
-        /(?:(?:^|.*;\s*)eToken\s*\=\s*([^;]*).*$)|^.*$/,
+        /(?:(?:^|.*;\s*)eToken\s*=\s*([^;]*).*$)|^.*$/,
         "$1",
       );
       axios.defaults.headers.common['Authorization'] = authToken;
@@ -32,7 +32,7 @@ export default function AdminHomePage() {
         initialSalesData[item] = 0;
       });
       setSalesData(initialSalesData);
-    } catch (error) {
+    } catch {
       console.error('取得資料錯誤');
     }
   };
@@ -40,14 +40,14 @@ export default function AdminHomePage() {
   const getOrderList = async () => {
     setIsFullLoading(true);
     const authToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)eToken\s*\=\s*([^;]*).*$)|^.*$/,
+      /(?:(?:^|.*;\s*)eToken\s*=\s*([^;]*).*$)|^.*$/,
       "$1",
     );
     axios.defaults.headers.common['Authorization'] = authToken;
     try {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/admin/orders`)
       setOrderList(res.data.orders);
-    } catch (error) {
+    } catch {
       console.error('取得資料錯誤');
     } finally {
       setIsFullLoading(false);

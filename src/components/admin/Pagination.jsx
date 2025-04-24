@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function Pagination({pageInfo, getData}) {
   // 處理換分頁
   const handlePageChange = (page) => {
@@ -30,5 +32,15 @@ function Pagination({pageInfo, getData}) {
     </div>
   </>)
 }
+
+Pagination.propTypes = {
+  pageInfo: PropTypes.shape({
+    current_page: PropTypes.number.isRequired,
+    has_pre: PropTypes.bool.isRequired,
+    has_next: PropTypes.bool.isRequired,
+    total_pages: PropTypes.number.isRequired,
+  }).isRequired,
+  getData: PropTypes.func.isRequired,
+};
 
 export default Pagination;

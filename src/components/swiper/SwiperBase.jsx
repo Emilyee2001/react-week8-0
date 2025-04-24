@@ -2,6 +2,8 @@ import { useRef, useEffect } from "react";
 import Swiper from "swiper";
 import "swiper/css";
 import Aos from "aos";
+import PropTypes from 'prop-types';
+
 
 export default function SwiperBase({CardComponent, slidesPerView, slidesPerViewMd}) {
 
@@ -51,3 +53,9 @@ export default function SwiperBase({CardComponent, slidesPerView, slidesPerViewM
     </div>
   </>)
 }
+
+SwiperBase.propTypes = {
+  CardComponent: PropTypes.elementType.isRequired, // 表示這是一個 React component
+  slidesPerView: PropTypes.number.isRequired,
+  slidesPerViewMd: PropTypes.number.isRequired,
+};

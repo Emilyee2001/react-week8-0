@@ -22,7 +22,7 @@ export default function CartPage() {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/cart`);
       setCartList(res.data.data);
       dispatch(updateCartItem(res.data.data.carts));
-    } catch (error) {
+    } catch {
       handleResultMessage('error', '頁面異常請稍後再試', 'center');
     } finally {
       setIsFullscreenLoading(false);
@@ -45,7 +45,7 @@ export default function CartPage() {
         }
       });
       getCartList();
-    } catch (error) {
+    } catch {
       handleResultMessage('error', '系統異常請稍後再試', 'center');
     } finally {
       setIsLoading(false);

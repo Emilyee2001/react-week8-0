@@ -15,7 +15,7 @@ export default function CardProductTemplate() {
       const productsList = res.data.products;
       setProductRender([...productsList.slice(0, 5)]);
     } catch (error) {
-      console.error('取得資料失敗');
+      console.error(error, '取得資料失敗');
     }
   };
 

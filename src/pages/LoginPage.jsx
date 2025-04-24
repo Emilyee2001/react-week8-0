@@ -55,7 +55,7 @@ function LoginPage() {
     try {
       await axios.post(`${baseUrl}/v2/api/user/check`);
       navigate('/admin');
-    } catch (error) {
+    } catch {
       console.error('請重新登入');
     } finally {
       setIsLoading(false);
@@ -65,7 +65,7 @@ function LoginPage() {
   // 在登入畫面渲染時呼叫檢查登入的API
   useEffect(() => {
     const authToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)eToken\s*\=\s*([^;]*).*$)|^.*$/,
+      /(?:(?:^|.*;\s*)eToken\s*=\s*([^;]*).*$)|^.*$/,
       "$1",
     );
     axios.defaults.headers.common['Authorization'] = authToken;

@@ -21,7 +21,7 @@ export default function ProductListPage() {
       setProductList(res.data.products);
       setCategories(['全部', ...new Set(res.data?.products.map(product => product.category))]);
     } catch (error) {
-      handleResultMessage('error', '頁面異常請稍後再試', 'center');
+      console.error(error, '網頁異常請稍後再試');
     } finally {
       setIsFullscreenLoading(false);
     }

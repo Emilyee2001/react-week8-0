@@ -3,6 +3,7 @@ const apiPath = import.meta.env.VITE_API_PATH
 import { useEffect, useRef, useState } from 'react'
 import { Modal } from 'bootstrap'
 import axios from 'axios'
+import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux'
 import { showToast } from '../../redux/slice/toastSlice'
@@ -369,5 +370,25 @@ function ProductModal({
     <Toast />
   </>)
 }
+
+ProductModal.propTypes = {
+  productMode: PropTypes.oneOf(['create', 'edit']).isRequired,
+  tempProduct: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    category: PropTypes.string,
+    unit: PropTypes.string,
+    origin_price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    description: PropTypes.string,
+    content: PropTypes.string,
+    is_enabled: PropTypes.bool,
+    imageUrl: PropTypes.string,
+    imagesUrl: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  getProductData: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+};
 
 export default ProductModal;

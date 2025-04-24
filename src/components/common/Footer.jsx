@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, NavLink } from "react-router"
 
 export default function Footer({ navRoutes }) {
@@ -22,7 +23,7 @@ export default function Footer({ navRoutes }) {
             ))}
           </ul>
         </div>
-        <div className="d-flex gap-3 justify-content-center">
+        <div className="d-flex gap-3 justify-content-center flex-wrap">
           <p>© 2024 ExotiSpice All Rights Reserved</p>
           <p>此網站為學習使用並無商業用途</p>
           <p>隱私權政策</p>
@@ -33,3 +34,13 @@ export default function Footer({ navRoutes }) {
 
   </>)
 }
+
+
+Footer.propTypes = {
+  navRoutes: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};

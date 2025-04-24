@@ -1,6 +1,7 @@
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiPath = import.meta.env.VITE_API_PATH;
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux"
@@ -16,7 +17,7 @@ export default function Header({ navRoutes }) {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/cart`);
       setCartItem(res.data.data.carts);
     } catch (error) {
-      console.log('error', '頁面異常請稍後再試');
+      console.log(error, '頁面異常請稍後再試');
     }
   };
 
@@ -83,3 +84,12 @@ export default function Header({ navRoutes }) {
 
   </>)
 }
+
+Header.propTypes = {
+  navRoutes: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
