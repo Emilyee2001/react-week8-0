@@ -2,6 +2,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiPath = import.meta.env.VITE_API_PATH;
 
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import FullscreenLoading from '../components/FullscreenLoading';
 import SwiperBase from '../components/swiper/SwiperBase';
 import CardProductTemplate from '../components/swiper/CardProduct';
