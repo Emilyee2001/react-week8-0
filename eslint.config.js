@@ -6,6 +6,18 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   { ignores: ['dist'] },
+
+  // ✅ Node 環境設定：針對 Vite/Tailwind/PostCSS 等設定檔
+  {
+    files: ['*.config.js', '*.config.cjs', 'vite.config.*'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node,
+      sourceType: 'module',
+    },
+  },
+
+  // ✅ React 專案設定：JS/JSX 檔案
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
