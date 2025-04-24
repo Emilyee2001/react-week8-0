@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import FullscreenLoading from '../components/FullscreenLoading';
 import SwiperBase from '../components/swiper/SwiperBase';
 import CardProductTemplate from '../components/swiper/CardProduct';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,7 @@ export default function ProductDetailPage() {
 
   const dispatch = useDispatch();
 
-  const getProduct = async () => {
+  const getProduct = useCallback(async () => {
     setIsFullscreenLoading(true);
     try {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/product/${product_id}`);
@@ -34,11 +34,11 @@ export default function ProductDetailPage() {
     } finally {
       setIsFullscreenLoading(false);
     }
-  };
+  }, [product_id]);
 
   useEffect(() => {
     getProduct();
-  }, [product_id]);
+  }, [getProduct]);
 
   // 加入購物車
   const addCart = async (product_id, qty) => {

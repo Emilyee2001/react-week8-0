@@ -1,5 +1,5 @@
 const baseUrl = import.meta.env.VITE_BASE_URL
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
@@ -49,8 +49,8 @@ function LoginPage() {
       setIsLoading(false);
     }
   }
-  // 登入頁面戳API檢查是否登入，這樣重新整理就不需要重新輸入資料
-  const checkUserLogin = async () => {
+
+  const checkUserLogin = useCallback(async () => {
     setIsLoading(true);
     try {
       await axios.post(`${baseUrl}/v2/api/user/check`);
@@ -60,9 +60,9 @@ function LoginPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [navigate]);
 
-  // 在登入畫面渲染時呼叫檢查登入的API
+
   useEffect(() => {
     const authToken = document.cookie.replace(
       /(?:(?:^|.*;\s*)eToken\s*=\s*([^;]*).*$)|^.*$/,
@@ -70,7 +70,7 @@ function LoginPage() {
     );
     axios.defaults.headers.common['Authorization'] = authToken;
     checkUserLogin();
-  }, [])
+  }, [checkUserLogin]);
 
   return (<>
     <div className="d-flex flex-column justify-content-center align-items-center vh-100">

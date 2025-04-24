@@ -24,7 +24,7 @@ export default function Toast() {
         }, 3000);
       }
     })
-  }, [messages]);
+  }, [messages, dispatch]);
 
   const handleRemoveToast = (id) => {
     dispatch(removeToast(id));

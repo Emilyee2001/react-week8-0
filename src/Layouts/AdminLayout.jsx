@@ -1,5 +1,7 @@
 const baseUrl = import.meta.env.VITE_BASE_URL
 import axios from 'axios'
+
+import { useCallback } from 'react';
 import { useEffect, useState } from 'react';
 import { Link, Outlet, NavLink, useNavigate } from "react-router"
 
@@ -22,14 +24,23 @@ export default function AdminLayout() {
     }
   ];
 
-  const checkUserLogin = async () => {
+  // const checkUserLogin = async () => {
+  //   try {
+  //     await axios.post(`${baseUrl}/v2/api/user/check`);
+  //   } catch (error) {
+  //     console.error('請重新登入', error);
+  //     navigate('/login');
+  //   }
+  // };
+
+  const checkUserLogin = useCallback(async () => {
     try {
       await axios.post(`${baseUrl}/v2/api/user/check`);
     } catch (error) {
       console.error('請重新登入', error);
       navigate('/login');
     }
-  };
+  }, [navigate]);
 
   // 在登入畫面渲染時呼叫檢查登入的API
   useEffect(() => {
@@ -39,7 +50,7 @@ export default function AdminLayout() {
     );
     axios.defaults.headers.common['Authorization'] = authToken;
     checkUserLogin();
-  }, []);
+  }, [checkUserLogin]);
 
   // 登出
   const adminLogout = async () => {

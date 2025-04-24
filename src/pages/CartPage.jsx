@@ -3,7 +3,7 @@ const apiPath = import.meta.env.VITE_API_PATH;
 
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { updateCartItem } from '../redux/slice/CartSlice';
@@ -17,7 +17,7 @@ export default function CartPage() {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const getCartList = async () => {
+  const getCartList = useCallback(async () => {
     setIsFullscreenLoading(true);
     try {
       const res = await axios.get(`${baseUrl}/v2/api/${apiPath}/cart`);
@@ -28,11 +28,11 @@ export default function CartPage() {
     } finally {
       setIsFullscreenLoading(false);
     }
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     getCartList();
-  }, []);
+  }, [getCartList]);
 
   // 調整購物車數量
   const changeCartQty = async (cart, qty) => {
